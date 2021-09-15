@@ -17,7 +17,7 @@ namespace Pulumi.Kubernetes.Types.Outputs.Apps.V1
     public sealed class StatefulSetStatus
     {
         /// <summary>
-        /// Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta
+        /// Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
         /// </summary>
         public readonly int AvailableReplicas;
         /// <summary>

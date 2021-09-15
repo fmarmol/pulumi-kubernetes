@@ -192,6 +192,10 @@ namespace Pulumi.Kubernetes.Yaml
                 type == typeof(FlowControl.V1Beta1.FlowSchemaList) ? "flowcontrol.apiserver.k8s.io/v1beta1/FlowSchemaList" :
                 type == typeof(FlowControl.V1Beta1.PriorityLevelConfiguration) ? "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfiguration" :
                 type == typeof(FlowControl.V1Beta1.PriorityLevelConfigurationList) ? "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList" :
+                type == typeof(FlowControl.V1Beta2.FlowSchema) ? "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema" :
+                type == typeof(FlowControl.V1Beta2.FlowSchemaList) ? "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList" :
+                type == typeof(FlowControl.V1Beta2.PriorityLevelConfiguration) ? "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration" :
+                type == typeof(FlowControl.V1Beta2.PriorityLevelConfigurationList) ? "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList" :
                 type == typeof(Meta.V1.Status) ? "meta/v1/Status" :
                 type == typeof(Networking.V1.Ingress) ? "networking.k8s.io/v1/Ingress" :
                 type == typeof(Networking.V1.IngressClass) ? "networking.k8s.io/v1/IngressClass" :
@@ -529,6 +533,8 @@ namespace Pulumi.Kubernetes.Yaml
                 || gvk == "flowcontrol.apiserver.k8s.io/v1alpha1/PriorityLevelConfigurationList"
                 || gvk == "flowcontrol.apiserver.k8s.io/v1beta1/FlowSchemaList"
                 || gvk == "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList"
+                || gvk == "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList"
+                || gvk == "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList"
                 || gvk == "networking.k8s.io/v1/IngressClassList"
                 || gvk == "networking.k8s.io/v1/IngressList"
                 || gvk == "networking.k8s.io/v1/NetworkPolicyList"
@@ -1049,6 +1055,18 @@ namespace Pulumi.Kubernetes.Yaml
                         {
                             id.Apply(id => ($"flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfiguration::{id}",
                                 new FlowControl.V1Beta1.PriorityLevelConfiguration(id, obj!, opts) as KubernetesResource))
+                        };
+                    case "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema":
+                        return new[]
+                        {
+                            id.Apply(id => ($"flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema::{id}",
+                                new FlowControl.V1Beta2.FlowSchema(id, obj!, opts) as KubernetesResource))
+                        };
+                    case "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration":
+                        return new[]
+                        {
+                            id.Apply(id => ($"flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration::{id}",
+                                new FlowControl.V1Beta2.PriorityLevelConfiguration(id, obj!, opts) as KubernetesResource))
                         };
                     case "meta/v1/Status":
                         return new[]

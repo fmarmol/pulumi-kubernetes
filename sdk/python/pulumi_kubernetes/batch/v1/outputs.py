@@ -745,7 +745,7 @@ class JobStatus(dict):
                The job controller creates pods with a finalizer. When a pod terminates (succeeded or failed), the controller does three steps to account for it in the job status: (1) Add the pod UID to the arrays in this field. (2) Remove the pod finalizer. (3) Remove the pod UID from the arrays while increasing the corresponding
                    counter.
                
-               This field is alpha-level. The job controller only makes use of this field when the feature gate PodTrackingWithFinalizers is enabled. Old jobs might not be tracked using this field, in which case the field remains null.
+               This field is alpha-level. The job controller only makes use of this field when the feature gate JobTrackingWithFinalizers is enabled. Old jobs might not be tracked using this field, in which case the field remains null.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -829,7 +829,7 @@ class JobStatus(dict):
         The job controller creates pods with a finalizer. When a pod terminates (succeeded or failed), the controller does three steps to account for it in the job status: (1) Add the pod UID to the arrays in this field. (2) Remove the pod finalizer. (3) Remove the pod UID from the arrays while increasing the corresponding
             counter.
 
-        This field is alpha-level. The job controller only makes use of this field when the feature gate PodTrackingWithFinalizers is enabled. Old jobs might not be tracked using this field, in which case the field remains null.
+        This field is alpha-level. The job controller only makes use of this field when the feature gate JobTrackingWithFinalizers is enabled. Old jobs might not be tracked using this field, in which case the field remains null.
         """
         return pulumi.get(self, "uncounted_terminated_pods")
 

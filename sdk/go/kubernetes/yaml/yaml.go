@@ -59,6 +59,7 @@ import (
 	extensionsv1beta1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/extensions/v1beta1"
 	flowcontrolv1alpha1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/flowcontrol/v1alpha1"
 	flowcontrolv1beta1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/flowcontrol/v1beta1"
+	flowcontrolv1beta2 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/flowcontrol/v1beta2"
 	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/meta/v1"
 	networkingv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/networking/v1"
 	networkingv1beta1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/networking/v1beta1"
@@ -301,6 +302,8 @@ func parseYamlObject(ctx *pulumi.Context, obj map[string]interface{}, transforma
 		"flowcontrol.apiserver.k8s.io/v1alpha1/PriorityLevelConfigurationList",
 		"flowcontrol.apiserver.k8s.io/v1beta1/FlowSchemaList",
 		"flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList",
+		"flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList",
+		"flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList",
 		"networking.k8s.io/v1/IngressClassList",
 		"networking.k8s.io/v1/IngressList",
 		"networking.k8s.io/v1/NetworkPolicyList",
@@ -908,6 +911,20 @@ func parseYamlObject(ctx *pulumi.Context, obj map[string]interface{}, transforma
 	case "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfiguration":
 		var res flowcontrolv1beta1.PriorityLevelConfiguration
 		err := ctx.RegisterResource("kubernetes:flowcontrol.apiserver.k8s.io/v1beta1:PriorityLevelConfiguration", metaName, kubernetes.UntypedArgs(obj), &res, opts...)
+		if err != nil {
+			return nil, err
+		}
+		return []resourceTuple{{Name: key, Resource: &res}}, nil
+	case "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema":
+		var res flowcontrolv1beta2.FlowSchema
+		err := ctx.RegisterResource("kubernetes:flowcontrol.apiserver.k8s.io/v1beta2:FlowSchema", metaName, kubernetes.UntypedArgs(obj), &res, opts...)
+		if err != nil {
+			return nil, err
+		}
+		return []resourceTuple{{Name: key, Resource: &res}}, nil
+	case "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration":
+		var res flowcontrolv1beta2.PriorityLevelConfiguration
+		err := ctx.RegisterResource("kubernetes:flowcontrol.apiserver.k8s.io/v1beta2:PriorityLevelConfiguration", metaName, kubernetes.UntypedArgs(obj), &res, opts...)
 		if err != nil {
 			return nil, err
 		}

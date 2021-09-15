@@ -453,6 +453,17 @@ _utilities.register(
  },
  {
   "pkg": "kubernetes",
+  "mod": "flowcontrol.apiserver.k8s.io/v1beta2",
+  "fqn": "pulumi_kubernetes.flowcontrol.v1beta2",
+  "classes": {
+   "kubernetes:flowcontrol.apiserver.k8s.io/v1beta2:FlowSchema": "FlowSchema",
+   "kubernetes:flowcontrol.apiserver.k8s.io/v1beta2:FlowSchemaList": "FlowSchemaList",
+   "kubernetes:flowcontrol.apiserver.k8s.io/v1beta2:PriorityLevelConfiguration": "PriorityLevelConfiguration",
+   "kubernetes:flowcontrol.apiserver.k8s.io/v1beta2:PriorityLevelConfigurationList": "PriorityLevelConfigurationList"
+  }
+ },
+ {
+  "pkg": "kubernetes",
   "mod": "helm.sh/v3",
   "fqn": "pulumi_kubernetes.helm.v3",
   "classes": {

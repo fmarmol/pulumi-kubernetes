@@ -1799,8 +1799,8 @@ class StatefulSetSpecArgs:
 @pulumi.input_type
 class StatefulSetStatusArgs:
     def __init__(__self__, *,
+                 available_replicas: pulumi.Input[int],
                  replicas: pulumi.Input[int],
-                 available_replicas: Optional[pulumi.Input[int]] = None,
                  collision_count: Optional[pulumi.Input[int]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['StatefulSetConditionArgs']]]] = None,
                  current_replicas: Optional[pulumi.Input[int]] = None,
@@ -1811,8 +1811,8 @@ class StatefulSetStatusArgs:
                  updated_replicas: Optional[pulumi.Input[int]] = None):
         """
         StatefulSetStatus represents the current state of a StatefulSet.
+        :param pulumi.Input[int] available_replicas: Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
         :param pulumi.Input[int] replicas: replicas is the number of Pods created by the StatefulSet controller.
-        :param pulumi.Input[int] available_replicas: Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta
         :param pulumi.Input[int] collision_count: collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.
         :param pulumi.Input[Sequence[pulumi.Input['StatefulSetConditionArgs']]] conditions: Represents the latest available observations of a statefulset's current state.
         :param pulumi.Input[int] current_replicas: currentReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision.
@@ -1822,9 +1822,8 @@ class StatefulSetStatusArgs:
         :param pulumi.Input[str] update_revision: updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas)
         :param pulumi.Input[int] updated_replicas: updatedReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision.
         """
+        pulumi.set(__self__, "available_replicas", available_replicas)
         pulumi.set(__self__, "replicas", replicas)
-        if available_replicas is not None:
-            pulumi.set(__self__, "available_replicas", available_replicas)
         if collision_count is not None:
             pulumi.set(__self__, "collision_count", collision_count)
         if conditions is not None:
@@ -1843,6 +1842,18 @@ class StatefulSetStatusArgs:
             pulumi.set(__self__, "updated_replicas", updated_replicas)
 
     @property
+    @pulumi.getter(name="availableReplicas")
+    def available_replicas(self) -> pulumi.Input[int]:
+        """
+        Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+        """
+        return pulumi.get(self, "available_replicas")
+
+    @available_replicas.setter
+    def available_replicas(self, value: pulumi.Input[int]):
+        pulumi.set(self, "available_replicas", value)
+
+    @property
     @pulumi.getter
     def replicas(self) -> pulumi.Input[int]:
         """
@@ -1853,18 +1864,6 @@ class StatefulSetStatusArgs:
     @replicas.setter
     def replicas(self, value: pulumi.Input[int]):
         pulumi.set(self, "replicas", value)
-
-    @property
-    @pulumi.getter(name="availableReplicas")
-    def available_replicas(self) -> Optional[pulumi.Input[int]]:
-        """
-        Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta
-        """
-        return pulumi.get(self, "available_replicas")
-
-    @available_replicas.setter
-    def available_replicas(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "available_replicas", value)
 
     @property
     @pulumi.getter(name="collisionCount")

@@ -334,6 +334,14 @@ export abstract class CollectionComponentResource extends pulumi.ComponentResour
     public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfiguration", namespace: string, name: string): pulumi.Output<flowcontrol.v1beta1.PriorityLevelConfiguration>;
     public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList", name: string): pulumi.Output<flowcontrol.v1beta1.PriorityLevelConfigurationList>;
     public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList", namespace: string, name: string): pulumi.Output<flowcontrol.v1beta1.PriorityLevelConfigurationList>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", name: string): pulumi.Output<flowcontrol.v1beta2.FlowSchema>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", namespace: string, name: string): pulumi.Output<flowcontrol.v1beta2.FlowSchema>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", name: string): pulumi.Output<flowcontrol.v1beta2.FlowSchemaList>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", namespace: string, name: string): pulumi.Output<flowcontrol.v1beta2.FlowSchemaList>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", name: string): pulumi.Output<flowcontrol.v1beta2.PriorityLevelConfiguration>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", namespace: string, name: string): pulumi.Output<flowcontrol.v1beta2.PriorityLevelConfiguration>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", name: string): pulumi.Output<flowcontrol.v1beta2.PriorityLevelConfigurationList>;
+    public getResource(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", namespace: string, name: string): pulumi.Output<flowcontrol.v1beta2.PriorityLevelConfigurationList>;
     public getResource(groupVersionKind: "meta/v1/Status", name: string): pulumi.Output<meta.v1.Status>;
     public getResource(groupVersionKind: "meta/v1/Status", namespace: string, name: string): pulumi.Output<meta.v1.Status>;
     public getResource(groupVersionKind: "networking.k8s.io/v1/Ingress", name: string): pulumi.Output<networking.v1.Ingress>;
@@ -1792,6 +1800,42 @@ export abstract class CollectionComponentResource extends pulumi.ComponentResour
     public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList", namespace: string, name: string, property: "kind"): pulumi.Output<"PriorityLevelConfigurationList">;
     public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList", name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ListMeta>;
     public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList", namespace: string, name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ListMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", namespace: string, name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", name: string, property: "kind"): pulumi.Output<"FlowSchema">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", namespace: string, name: string, property: "kind"): pulumi.Output<"FlowSchema">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ObjectMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", namespace: string, name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ObjectMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", name: string, property: "spec"): pulumi.Output<outputs.flowcontrol.v1beta2.FlowSchemaSpec>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", namespace: string, name: string, property: "spec"): pulumi.Output<outputs.flowcontrol.v1beta2.FlowSchemaSpec>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", name: string, property: "status"): pulumi.Output<outputs.flowcontrol.v1beta2.FlowSchemaStatus>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema", namespace: string, name: string, property: "status"): pulumi.Output<outputs.flowcontrol.v1beta2.FlowSchemaStatus>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", namespace: string, name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", name: string, property: "items"): pulumi.Output<outputs.flowcontrol.v1beta2.FlowSchema[]>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", namespace: string, name: string, property: "items"): pulumi.Output<outputs.flowcontrol.v1beta2.FlowSchema[]>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", name: string, property: "kind"): pulumi.Output<"FlowSchemaList">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", namespace: string, name: string, property: "kind"): pulumi.Output<"FlowSchemaList">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ListMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList", namespace: string, name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ListMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", namespace: string, name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", name: string, property: "kind"): pulumi.Output<"PriorityLevelConfiguration">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", namespace: string, name: string, property: "kind"): pulumi.Output<"PriorityLevelConfiguration">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ObjectMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", namespace: string, name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ObjectMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", name: string, property: "spec"): pulumi.Output<outputs.flowcontrol.v1beta2.PriorityLevelConfigurationSpec>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", namespace: string, name: string, property: "spec"): pulumi.Output<outputs.flowcontrol.v1beta2.PriorityLevelConfigurationSpec>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", name: string, property: "status"): pulumi.Output<outputs.flowcontrol.v1beta2.PriorityLevelConfigurationStatus>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration", namespace: string, name: string, property: "status"): pulumi.Output<outputs.flowcontrol.v1beta2.PriorityLevelConfigurationStatus>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", namespace: string, name: string, property: "apiVersion"): pulumi.Output<"flowcontrol.apiserver.k8s.io/v1beta2">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", name: string, property: "items"): pulumi.Output<outputs.flowcontrol.v1beta2.PriorityLevelConfiguration[]>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", namespace: string, name: string, property: "items"): pulumi.Output<outputs.flowcontrol.v1beta2.PriorityLevelConfiguration[]>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", name: string, property: "kind"): pulumi.Output<"PriorityLevelConfigurationList">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", namespace: string, name: string, property: "kind"): pulumi.Output<"PriorityLevelConfigurationList">;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ListMeta>;
+    public getResourceProperty(groupVersionKind: "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList", namespace: string, name: string, property: "metadata"): pulumi.Output<outputs.meta.v1.ListMeta>;
     public getResourceProperty(groupVersionKind: "meta/v1/Status", name: string, property: "apiVersion"): pulumi.Output<"v1">;
     public getResourceProperty(groupVersionKind: "meta/v1/Status", namespace: string, name: string, property: "apiVersion"): pulumi.Output<"v1">;
     public getResourceProperty(groupVersionKind: "meta/v1/Status", name: string, property: "code"): pulumi.Output<number>;
@@ -3029,6 +3073,8 @@ export interface ConfigOpts {
         || (gvk === "flowcontrol.apiserver.k8s.io/v1alpha1/PriorityLevelConfigurationList")
         || (gvk === "flowcontrol.apiserver.k8s.io/v1beta1/FlowSchemaList")
         || (gvk === "flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfigurationList")
+        || (gvk === "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchemaList")
+        || (gvk === "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfigurationList")
         || (gvk === "networking.k8s.io/v1/IngressClassList")
         || (gvk === "networking.k8s.io/v1/IngressList")
         || (gvk === "networking.k8s.io/v1/NetworkPolicyList")
@@ -3459,6 +3505,16 @@ export interface ConfigOpts {
             return [id.apply(id => ({
                 name: `flowcontrol.apiserver.k8s.io/v1beta1/PriorityLevelConfiguration::${id}`,
                 resource: new flowcontrol.v1beta1.PriorityLevelConfiguration(id, obj, opts),
+            }))];
+        case "flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema":
+            return [id.apply(id => ({
+                name: `flowcontrol.apiserver.k8s.io/v1beta2/FlowSchema::${id}`,
+                resource: new flowcontrol.v1beta2.FlowSchema(id, obj, opts),
+            }))];
+        case "flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration":
+            return [id.apply(id => ({
+                name: `flowcontrol.apiserver.k8s.io/v1beta2/PriorityLevelConfiguration::${id}`,
+                resource: new flowcontrol.v1beta2.PriorityLevelConfiguration(id, obj, opts),
             }))];
         case "meta/v1/Status":
             return [id.apply(id => ({

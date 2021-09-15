@@ -238,6 +238,7 @@ const (
 	ExtensionsV1B1            groupVersion = "extensions/v1beta1"
 	FlowcontrolV1A1           groupVersion = "flowcontrol.apiserver.k8s.io/v1alpha1"
 	FlowcontrolV1B1           groupVersion = "flowcontrol.apiserver.k8s.io/v1beta1"
+	FlowcontrolV1B2           groupVersion = "flowcontrol.apiserver.k8s.io/v1beta2"
 	MetaV1                    groupVersion = "meta/v1"
 	NetworkingV1              groupVersion = "networking.k8s.io/v1"
 	NetworkingV1B1            groupVersion = "networking.k8s.io/v1beta1"

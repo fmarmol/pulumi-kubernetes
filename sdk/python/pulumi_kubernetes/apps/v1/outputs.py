@@ -2015,8 +2015,8 @@ class StatefulSetStatus(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 available_replicas: int,
                  replicas: int,
-                 available_replicas: Optional[int] = None,
                  collision_count: Optional[int] = None,
                  conditions: Optional[Sequence['outputs.StatefulSetCondition']] = None,
                  current_replicas: Optional[int] = None,
@@ -2027,8 +2027,8 @@ class StatefulSetStatus(dict):
                  updated_replicas: Optional[int] = None):
         """
         StatefulSetStatus represents the current state of a StatefulSet.
+        :param int available_replicas: Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
         :param int replicas: replicas is the number of Pods created by the StatefulSet controller.
-        :param int available_replicas: Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta
         :param int collision_count: collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.
         :param Sequence['StatefulSetConditionArgs'] conditions: Represents the latest available observations of a statefulset's current state.
         :param int current_replicas: currentReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision.
@@ -2038,9 +2038,8 @@ class StatefulSetStatus(dict):
         :param str update_revision: updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas)
         :param int updated_replicas: updatedReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision.
         """
+        pulumi.set(__self__, "available_replicas", available_replicas)
         pulumi.set(__self__, "replicas", replicas)
-        if available_replicas is not None:
-            pulumi.set(__self__, "available_replicas", available_replicas)
         if collision_count is not None:
             pulumi.set(__self__, "collision_count", collision_count)
         if conditions is not None:
@@ -2059,20 +2058,20 @@ class StatefulSetStatus(dict):
             pulumi.set(__self__, "updated_replicas", updated_replicas)
 
     @property
+    @pulumi.getter(name="availableReplicas")
+    def available_replicas(self) -> int:
+        """
+        Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+        """
+        return pulumi.get(self, "available_replicas")
+
+    @property
     @pulumi.getter
     def replicas(self) -> int:
         """
         replicas is the number of Pods created by the StatefulSet controller.
         """
         return pulumi.get(self, "replicas")
-
-    @property
-    @pulumi.getter(name="availableReplicas")
-    def available_replicas(self) -> Optional[int]:
-        """
-        Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta
-        """
-        return pulumi.get(self, "available_replicas")
 
     @property
     @pulumi.getter(name="collisionCount")
